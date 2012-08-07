@@ -19,8 +19,14 @@
 
 +(id)itemWithLabel:(NSString *)inLabel
 {
-    id newItem = [self item];
+    return [self itemWithLabel: inLabel action: nil];
+}
+
++(id)itemWithLabel:(NSString *)inLabel action: (void (^)())action
+{
+    RIButtonItem *newItem = [self item];
     [newItem setLabel:inLabel];
+    [newItem setAction: action];
     return newItem;
 }
 
